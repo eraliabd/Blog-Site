@@ -1,6 +1,6 @@
 # Blog-Site
 Bunda biz postlar va postga comment yozishimiz mumkin bo'ladi.
-Va admin bilan bog'lanish mumkin.
+Va admin bilan bog'lanish mumkin. Bu site homaki hali serverga joylamadim.
 
 ![image](https://user-images.githubusercontent.com/91982815/188499647-d12646c4-4052-4a0c-a52c-7a0c1fb20a27.png)
 
