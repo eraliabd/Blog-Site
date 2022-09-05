@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}About Us{% endblock %}</title>
+
+{% block content %}
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h4>about us</h4>
+                            <h2>more about us!</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Banner Ends Here -->
+
+
+    <section class="about-us">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="{% static 'assets/images/about-us.jpg' %}" alt="">
+                    <p>Assalomu alaykum avvalambor o'zim haqimda gapiradigan bo'lsam, ismi familiyam Erali Abdinazarov
+                        Qashqadaryo viloyati Chiroqchi tumanida yashayman. Hozirda Sirdaryo Guliston Davlat
+                        Universiteti 4-kurs talabasiman. Va Python Backend dasturchisiman, Portfolio bilan tanishing 👉
+                        <a rel="nofollow"
+                           href="https://t.me/eraliabdinazarov"
+                           target="_parent">portfolio</a>,
+                        Yana Telegram botlar ham qilib beraman, istasangiz albatta ya'ni ehtiyoj sessangiz!</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Birinchi telegram botim haqida!</h4>
+                    <p>Bu bot asosan ob-havo haqida, siz istalgan payt o'z viloyatingiz ob-havosini bilib turishingiz
+                        mumkin. 👉 <a rel="nofollow"
+                                      href="https://t.me/eralionlineobhavobot"
+                                      target="_parent">Ob-havo botim</a></p>
+                </div>
+                <div class="col-lg-6">
+                    <h4>Ikkinchi telegram botim haqida!</h4>
+                    <p>Bu bot Namoz vaqini eslatib turish uchun qurilgan. Uni vaqti qayerdan keladi desangiz,
+                        <a rel="nofollow" href="https://islom.uz/" target="_parent">Islom.uz</a> saytidan API chiqarib
+                        olganman. Bot bilan tanishing. 👉 <a rel="nofollow" href="https://t.me/erali_namoz_vaqti_bot"
+                                                             target="_parent">Namoz vaqti botim</a></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Va eng oxirgi Django Framework'da tayyorlangan MaxWay loyiham</h4>
+                    <p>Bu meni oxirgi Django Frameworkda qilgan loyiham. MaxWay ya'ni onlayn Fas-Food magazin, unda
+                        Dashboard qismlari va karzina qismi ham bor. Bemalol buyurtma berish mumkin 👉
+                        <a rel="nofollow" href="https://eralidev.pythonanywhere.com/" target="_parent">MaxWay</a>,
+                        Pastroqda men bilan bog'lanish uchun telegram manzil, Linkedin Github manzilim ko'rsatib o'tilgan.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-github"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+{% endblock %}

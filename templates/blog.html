@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Blog Posts{% endblock %}</title>
+{% block content %}
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h4>Recent Posts</h4>
+                            <h2>OUR RECENT BLOG ENTRIES</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Banner Ends Here -->
+
+{#    <section class="call-to-action">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-12">#}
+{#                    <div class="main-content">#}
+{#                        <div class="row">#}
+{#                            <div class="col-lg-8">#}
+{#                                <span>Stand Blog HTML5 Template</span>#}
+{#                                <h4>Creative HTML Template For Bloggers!</h4>#}
+{#                            </div>#}
+{#                            <div class="col-lg-4">#}
+{#                                <div class="main-button">#}
+{#                                    <a href="" target="_parent">Download#}
+{#                                        Now!</a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+
+
+    <section class="blog-posts grid-system">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="all-blog-posts">
+                        <div class="row">
+                            {% for post in posts %}
+                                <div class="col-lg-6">
+                                    <div class="blog-post">
+                                        <div class="blog-thumb">
+                                            <img src="/media/{{ post.image }}" alt="image">
+                                        </div>
+                                        <div class="down-content">
+                                            <span>{{ post.title }}</span>
+                                            <a href="{{ post.get_absolute_url }}"><h4>{{ post.small }}</h4></a>
+                                            <ul class="post-info">
+                                                <li><a href="#">{{ post.author }}</a></li>
+                                                <li><a href="#">{{ post.publish }}</a></li>
+                                                {% with comments.count as total_comments %}
+                                                    <li><a href="#">{{ total_comments }} comment{{ total_comments|pluralize }}</a></li>
+                                                {% endwith %}
+                                            </ul>
+                                            <p>{{ post.body|truncatewords:20 }}</p>
+                                            <div class="post-options">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <ul class="post-tags">
+                                                            <li><i class="fa fa-bolt"></i></li>
+                                                            <li><a href="#">EraliDev</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="col-lg-12">
+                                <div class="page-numbers" style="padding-left: 20px;">
+                                    {% include "paginator.html" with page=page_obj %}
+                                </div>
+{#                                <div class="page-numbers">#}
+{#                                    {% if page.has_previous %}#}
+{#                                        <a style="font-size: 20px;" href="?page={{ page.previous_page_number }}">< previous&nbsp;&nbsp;&nbsp;</a>#}
+{#                                    {% endif %}#}
+{#                                    <a style="font-size: 20px;" href="#">page - {{ page.number }} of {{ page.paginator.num_pages }}</a>#}
+{#                                    {% if page.has_next %}#}
+{#                                        <a style="font-size: 20px;" href="?page={{ page.next_page_number }}">&nbsp;&nbsp;&nbsp;next ></a>#}
+{#                                    {% endif %}#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sidebar-item search">
+                                    <form id="search_form" name="gs" method="GET" action="search">
+                                        <input type="search" name="q" class="searchText" placeholder="Search post..."
+                                               autocomplete="on">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="sidebar-item recent-posts">
+                                    <div class="sidebar-heading">
+                                        <h2>Recent Posts</h2>
+                                    </div>
+                                    <div class="content">
+                                        <ul>
+                                            {% for post in posts %}
+                                                <li><a href="{{ post.get_absolute_url }}">
+                                                    <h5>{{ post.small }}</h5>
+                                                    <span>{{ post.publish }}</span>
+                                                </a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="sidebar-item categories">
+                                    <div class="sidebar-heading">
+                                        <h2>Categories</h2>
+                                    </div>
+                                    <div class="content">
+                                        <ul>
+                                            {% for post in posts %}
+                                            <li><a href="{{ post.get_absolute_url }}">- {{ post.category }}</a></li>
+                                            {% endfor %}
+{#                                            <li><a href="#">- Awesome Layouts</a></li>#}
+{#                                            <li><a href="#">- Creative Ideas</a></li>#}
+{#                                            <li><a href="#">- Responsive Templates</a></li>#}
+{#                                            <li><a href="#">- HTML5 / CSS3 Templates</a></li>#}
+{#                                            <li><a href="#">- Creative &amp; Unique</a></li>#}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+{#                            <div class="col-lg-12">#}
+{#                                <div class="sidebar-item tags">#}
+{#                                    <div class="sidebar-heading">#}
+{#                                        <h2>Tag Clouds</h2>#}
+{#                                    </div>#}
+{#                                    <div class="content">#}
+{#                                        <ul>#}
+{#                                            <li><a href="#">Lifestyle</a></li>#}
+{#                                            <li><a href="#">Creative</a></li>#}
+{#                                            <li><a href="#">HTML5</a></li>#}
+{#                                            <li><a href="#">Inspiration</a></li>#}
+{#                                            <li><a href="#">Motivation</a></li>#}
+{#                                            <li><a href="#">PSD</a></li>#}
+{#                                            <li><a href="#">Responsive</a></li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
