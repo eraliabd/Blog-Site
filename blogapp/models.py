@@ -50,7 +50,6 @@ class Post(models.Model):
                              self.publish.day, self.slug])
 
 
-
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, related_name='comments')
     name = models.CharField(max_length=80, null=True)
